@@ -1,24 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import { Box, createTheme, ThemeProvider } from '@mui/material';
 
 function App() {
+  const theme1 = createTheme({
+    palette: {
+      mode: 'dark',
+      primary: {
+        light: '#757ce8',
+        main: '#3f50b5',
+        dark: '#002884',
+        contrastText: '#fff',
+      },
+    },
+  })
+  const theme2 = createTheme({
+    palette: {
+      mode: 'dark',
+      primary: {
+        light: '#673ab7',
+        main: '#ff5722',
+        dark: '#002884',
+        contrastText: '#fff',
+      },
+    },
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme2}>
+      <Box sx={{
+        backgroundColor: 'primary.light',
+        '&:hover': {
+          backgroundColor: 'primary.main',
+        },
+      }}>
+        hello material ui
+      </Box>
+    </ThemeProvider>
+
   );
 }
 
