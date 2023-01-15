@@ -1,6 +1,8 @@
-import logo from './logo.svg';
+
+import { RouterProvider } from 'react-router-dom';
+import router from './Routes/Routes';
 import './App.css';
-import { Box, createTheme, ThemeProvider } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material';
 
 function App() {
   const theme1 = createTheme({
@@ -13,6 +15,7 @@ function App() {
         contrastText: '#fff',
       },
     },
+
   })
   const theme2 = createTheme({
     palette: {
@@ -26,17 +29,15 @@ function App() {
     },
   })
   return (
-    <ThemeProvider theme={theme2}>
-      <Box sx={{
-        backgroundColor: 'primary.light',
-        '&:hover': {
-          backgroundColor: 'primary.main',
-        },
-      }}>
-        hello material ui
-      </Box>
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={theme1}>
 
+        <RouterProvider router={router}>
+
+        </RouterProvider>
+
+      </ThemeProvider>
+    </>
   );
 }
 
